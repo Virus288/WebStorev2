@@ -1,22 +1,24 @@
 #navbar {
   position: fixed;
+  z-index: 7;
+  background: aliceblue;
   transition: $defaultTransition;
 
   div {
     button {
-      background: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      text-align: center;
-      font-size: 1.5em;
+      @include navButton();
     }
+  }
+
+  .activeButton {
+    font-weight: 700;
+    color: $ohOrange;
   }
 
   .navIcon {
     border-radius: 50%;
     padding: 3px;
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   .icon-adult {
@@ -24,10 +26,13 @@
     background: rgba(dimgrey, 1);
     box-shadow: -5px 5px 0 $ohOrange;
     transition: $defaultTransition;
+  }
 
-    &:hover {
-      box-shadow: -5px 5px 15px $ohOrange;
-      background: rgba(dimgrey, 0.2);
+  div:nth-child(1) {
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.9px;
       color: $ohOrange;
     }
   }
@@ -40,16 +45,7 @@
     width: 80%;
     height: 80px;
     box-shadow: 1px 3px 5px #d2dce6;
-    z-index: 7;
     transition: $defaultTransition;
-
-    &:hover {
-      &:after {
-        border-bottom-right-radius: 50px;
-        width: 80%;
-        transition: $defaultTransition;
-      }
-    }
 
     &:after {
       content: '';
@@ -63,7 +59,6 @@
       width: 20%;
       height: 80px;
       box-shadow: -5px 5px 0 $ohOrange;
-      transition: $defaultTransition;
     }
 
     div {
@@ -71,21 +66,32 @@
     }
 
     div:nth-child(1) {
-      width: 50%;
+      width: 10%;
+      cursor: pointer;
     }
     div:nth-child(2) {
-      width: 30%;
+      width: 50%;
+    }
+    div:nth-child(3) {
+      width: 20%;
+    }
+
+    .icon-adult {
+      &:hover {
+        box-shadow: -5px 5px 15px $ohOrange;
+        background: rgba(dimgrey, 0.2);
+        color: $ohOrange;
+      }
     }
   }
 
   @media only screen and (max-width: 500px) {
     @include flexCenter(column, space-evenly, center);
     top: 0;
-    left: 100vw;
+    left: 102vw;
     height: 100vh;
     width: 95%;
-    background: $mainColor;
-    box-shadow: 1px 2px 5px #888888;
+    box-shadow: -2px 2px 5px $ohOrange;
 
     div {
       width: 100%;
@@ -93,11 +99,25 @@
     }
 
     div:nth-child(1) {
-      @include flexCenter(column, space-evenly, center);
+      @include flexCenter(column, flex-end, start);
+      padding-left: 20px;
+      height: 10%;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: $ohOrange;
+      }
     }
 
     div:nth-child(2) {
+      @include flexCenter(column, space-evenly, center);
+      height: 60%;
+    }
+
+    div:nth-child(3) {
       @include flexCenter(row, space-evenly, center);
+      height: 25%;
     }
   }
 }
@@ -116,11 +136,12 @@
   height: 60px;
   font-size: 2rem;
   font-weight: bolder;
-  padding: 5px;
+  padding: 10px;
   rotate: 90deg;
   text-align: center;
   display: inline-block;
   transition: $defaultTransition;
+  z-index: 8;
 
   @media only screen and (min-width: 500px) {
     display: none;

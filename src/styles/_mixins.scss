@@ -6,21 +6,26 @@
   flex-wrap: wrap;
 }
 
-@mixin centerImage {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-@mixin mainButton {
-  background: $mainColor;
-  padding: 10px;
-  color: aliceblue;
+@mixin navButton {
+  background: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  width: fit-content;
-  box-shadow: 1px 2px 2px grey;
   text-align: center;
-  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: $defaultTransition;
+
+  @media only screen and (min-width: 500px) {
+    font-size: 1.5rem;
+
+    &:hover {
+      font-size: 1.7rem;
+      transition: $defaultTransition;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    font-size: 1.8rem;
+  }
 }

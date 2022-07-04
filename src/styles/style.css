@@ -17,6 +17,8 @@
 
 #navbar {
   position: fixed;
+  z-index: 7;
+  background: aliceblue;
   transition: 0.5s all ease-in-out;
 }
 #navbar div button {
@@ -25,12 +27,32 @@
   outline: none;
   cursor: pointer;
   text-align: center;
-  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s all ease-in-out;
+}
+@media only screen and (min-width: 500px) {
+  #navbar div button {
+    font-size: 1.5rem;
+  }
+  #navbar div button:hover {
+    font-size: 1.7rem;
+    transition: 0.5s all ease-in-out;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #navbar div button {
+    font-size: 1.8rem;
+  }
+}
+#navbar .activeButton {
+  font-weight: 700;
+  color: #f9673b;
 }
 #navbar .navIcon {
   border-radius: 50%;
   padding: 3px;
-  font-size: 1.7em;
+  font-size: 1.5em;
 }
 #navbar .icon-adult {
   color: aliceblue;
@@ -38,9 +60,10 @@
   box-shadow: -5px 5px 0 #f9673b;
   transition: 0.5s all ease-in-out;
 }
-#navbar .icon-adult:hover {
-  box-shadow: -5px 5px 15px #f9673b;
-  background: rgba(105, 105, 105, 0.2);
+#navbar div:nth-child(1) h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.9px;
   color: #f9673b;
 }
 @media only screen and (min-width: 500px) {
@@ -56,12 +79,6 @@
     width: 80%;
     height: 80px;
     box-shadow: 1px 3px 5px #d2dce6;
-    z-index: 7;
-    transition: 0.5s all ease-in-out;
-  }
-  #navbar:hover:after {
-    border-bottom-right-radius: 50px;
-    width: 80%;
     transition: 0.5s all ease-in-out;
   }
   #navbar:after {
@@ -76,7 +93,6 @@
     width: 20%;
     height: 80px;
     box-shadow: -5px 5px 0 #f9673b;
-    transition: 0.5s all ease-in-out;
   }
   #navbar div {
     display: flex;
@@ -86,10 +102,19 @@
     flex-wrap: wrap;
   }
   #navbar div:nth-child(1) {
-    width: 50%;
+    width: 10%;
+    cursor: pointer;
   }
   #navbar div:nth-child(2) {
-    width: 30%;
+    width: 50%;
+  }
+  #navbar div:nth-child(3) {
+    width: 20%;
+  }
+  #navbar .icon-adult:hover {
+    box-shadow: -5px 5px 15px #f9673b;
+    background: rgba(105, 105, 105, 0.2);
+    color: #f9673b;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -100,11 +125,10 @@
     align-items: center;
     flex-wrap: wrap;
     top: 0;
-    left: 100vw;
+    left: 102vw;
     height: 100vh;
     width: 95%;
-    background: rgb(240, 240, 240);
-    box-shadow: 1px 2px 5px #888888;
+    box-shadow: -2px 2px 5px #f9673b;
   }
   #navbar div {
     width: 100%;
@@ -113,16 +137,32 @@
   #navbar div:nth-child(1) {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    height: 10%;
+  }
+  #navbar div:nth-child(1) h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #f9673b;
+  }
+  #navbar div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    height: 60%;
   }
-  #navbar div:nth-child(2) {
+  #navbar div:nth-child(3) {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    height: 25%;
   }
 }
 
@@ -140,11 +180,12 @@
   height: 60px;
   font-size: 2rem;
   font-weight: bolder;
-  padding: 5px;
+  padding: 10px;
   rotate: 90deg;
   text-align: center;
   display: inline-block;
   transition: 0.5s all ease-in-out;
+  z-index: 8;
 }
 @media only screen and (min-width: 500px) {
   #navbarToggle {
