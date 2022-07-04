@@ -1,0 +1,136 @@
+#navbar {
+  position: fixed;
+  transition: $defaultTransition;
+
+  div {
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1.5em;
+    }
+  }
+
+  .navIcon {
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 1.7em;
+  }
+
+  .icon-adult {
+    color: aliceblue;
+    background: rgba(dimgrey, 1);
+    box-shadow: -5px 5px 0 $ohOrange;
+    transition: $defaultTransition;
+
+    &:hover {
+      box-shadow: -5px 5px 15px $ohOrange;
+      background: rgba(dimgrey, 0.2);
+      color: $ohOrange;
+    }
+  }
+
+  @media only screen and (min-width: 500px) {
+    @include flexCenter(row, space-evenly, center);
+    border-radius: 50px;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 80px;
+    box-shadow: 1px 3px 5px #d2dce6;
+    z-index: 7;
+    transition: $defaultTransition;
+
+    &:hover {
+      &:after {
+        border-bottom-right-radius: 50px;
+        width: 80%;
+        transition: $defaultTransition;
+      }
+    }
+
+    &:after {
+      content: '';
+      pointer-events: none;
+      position: fixed;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 10px;
+      top: 0;
+      left: 10%;
+      width: 20%;
+      height: 80px;
+      box-shadow: -5px 5px 0 $ohOrange;
+      transition: $defaultTransition;
+    }
+
+    div {
+      @include flexCenter(row, space-evenly, center);
+    }
+
+    div:nth-child(1) {
+      width: 50%;
+    }
+    div:nth-child(2) {
+      width: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    @include flexCenter(column, space-evenly, center);
+    top: 0;
+    left: 100vw;
+    height: 100vh;
+    width: 95%;
+    background: $mainColor;
+    box-shadow: 1px 2px 5px #888888;
+
+    div {
+      width: 100%;
+      height: 50vh;
+    }
+
+    div:nth-child(1) {
+      @include flexCenter(column, space-evenly, center);
+    }
+
+    div:nth-child(2) {
+      @include flexCenter(row, space-evenly, center);
+    }
+  }
+}
+
+.navbar-active {
+  @media only screen and (max-width: 500px) {
+    left: 5% !important
+  }
+}
+
+#navbarToggle {
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  width: 60px;
+  height: 60px;
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 5px;
+  rotate: 90deg;
+  text-align: center;
+  display: inline-block;
+  transition: $defaultTransition;
+
+  @media only screen and (min-width: 500px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 500px) {
+    display: block;
+  }
+}
+
+.navbar-toggle-active {
+  rotate: 180deg !important
+}

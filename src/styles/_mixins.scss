@@ -1,0 +1,26 @@
+@mixin flexCenter($direction, $justifyContent, $alignContent) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignContent;
+  flex-wrap: wrap;
+}
+
+@mixin centerImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@mixin mainButton {
+  background: $mainColor;
+  padding: 10px;
+  color: aliceblue;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: fit-content;
+  box-shadow: 1px 2px 2px grey;
+  text-align: center;
+  font-size: 1.5em;
+}
