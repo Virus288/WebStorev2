@@ -37,7 +37,28 @@
     }
   }
 
-  @media only screen and (min-width: 500px) {
+  @media only screen and (min-width: 1400px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 1400px) and (min-width: 1200px) {
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (max-width: 1200px) and (min-width: 800px) {
+    width: 95% !important;
+    left: 2.5% !important;
+    font-size: 1.2rem;
+
+    &:after {
+      left: 2.5% !important;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 1.8rem;
+  }
+
+  @media only screen and (min-width: 800px) {
     @include flexCenter(row, space-evenly, center);
     border-radius: 50px;
     top: 0;
@@ -70,7 +91,13 @@
       cursor: pointer;
     }
     div:nth-child(2) {
-      width: 50%;
+      @media only screen and (min-width: 1300px) {
+        width: 50%;
+      }
+
+      @media only screen and (max-width: 1300px) {
+        width: 70%;
+      }
     }
     div:nth-child(3) {
       width: 20%;
@@ -85,7 +112,7 @@
     }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 800px) {
     @include flexCenter(column, space-evenly, center);
     top: 0;
     left: 102vw;
@@ -123,15 +150,39 @@
 }
 
 .navbar-active {
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 800px) {
     left: 5% !important
+  }
+}
+
+.smallNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: aliceblue;
+  box-shadow: 0 2px 5px dimgray;
+
+  h1 {
+    font-size: 2.5em;
+    margin: 10px auto;
+    color: $ohOrange;
+  }
+
+  @media only screen and (min-width: 800px) {
+    display: none;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: block;
   }
 }
 
 #navbarToggle {
   position: fixed;
-  right: 5px;
-  top: 5px;
+  right: 2px;
+  top: 2px;
   width: 60px;
   height: 60px;
   font-size: 2rem;
@@ -142,14 +193,6 @@
   display: inline-block;
   transition: $defaultTransition;
   z-index: 8;
-
-  @media only screen and (min-width: 500px) {
-    display: none;
-  }
-
-  @media only screen and (max-width: 500px) {
-    display: block;
-  }
 }
 
 .navbar-toggle-active {
